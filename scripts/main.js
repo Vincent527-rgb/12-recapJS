@@ -13,11 +13,10 @@ const tabDetails = []; // mon sous-tableau de collecte d'informations
 
 // ==== Fonctions ====
 // Récupérer les données de l'utilisateur et les mettre dans mon sous-tableau
-// todo: mettre des variables plutôt que des arguments? Ne pas créer de sous-tableau avec une constance et utiliser return (retourne un tableau?) ?
-function stockUserData (description, amount, categorie) {
-    description = inputDescription.value;
-    amount = inputAmount.value;
-    categorie = inputCategories.value;
+function stockUserData () {
+    const description = inputDescription.value;
+    const amount = inputAmount.value;
+    const categorie = inputCategories.value;
 
     tabDetails.push(description);
     tabDetails.push(amount);
@@ -30,15 +29,17 @@ function stockTabDetails () {
 }
 
 // Montrer la liste des éléments inscrits
-// todo: trouver une façon de cibler les éléments? ou de les séparer autrement
 function displayDetailsList () {
-    displayDetails.innerHTML += `<div data-item="${tabGlobal.length}">${tabGlobal[tabGlobal.length-1]} <button class="delete">❌</button></div>`;
+    const lastDetail = tabGlobal[tabGlobal.length-1];
+
+    displayDetails.innerHTML += `<div data-item="${tabGlobal.length}">${lastDetail[0]} - ${lastDetail[1]} - ${lastDetail[2]} <button class="delete">❌</button></div>`;
 }
 
 // Montrer le montant total
 // todo: compléter plus tard pour faire l'addition des montants (et la soustraction lors du retrait?)
 function displayTotalAmount() {
-    displayTotal.innerHTML += `<span>${tabDetails[1]}</span>`;     
+    const totalAmount = tabGlobal.reduce((total, newValue) => total + parseFloat(newValue[1]), 0);
+    displayTotal.innerHTML = `<span>${totalAmount} €</span>`;
 }
 
 // ==== Evénements ====
@@ -48,7 +49,8 @@ btnSpending.addEventListener("click", function (event) {
 
     if (inputDescription.value == "" || inputAmount.value == "" || inputCategories.value == "") return alert("Vous devez remplir les champs !");
 
-    stockTabDetails(stockUserData());
+    stockUserData();
+    stockTabDetails();
     displayDetailsList();
     displayTotalAmount();
 
@@ -56,6 +58,8 @@ btnSpending.addEventListener("click", function (event) {
     inputDescription.value = "";
     inputAmount.value = "";
     inputCategories.value = "";
+    // Réinitialiser le sous-tableau à chaque click
+    tabDetails.length = 0;
 })
 
 // Pour supprimer mes éléments

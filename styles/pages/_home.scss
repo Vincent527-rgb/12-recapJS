@@ -13,12 +13,16 @@ h1 {
     font-size: 5rem;
 }
 form {
-    width: 50%;
+    width: 90%;
     margin: auto;
     padding: 3rem;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0,0,0,.5);
+
+    @media screen and (min-width:960px) {
+        width: 50%;
+    }
 
     label {
         margin: 3rem 0 1rem;
