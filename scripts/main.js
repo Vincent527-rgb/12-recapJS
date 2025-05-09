@@ -39,7 +39,7 @@ function displayDetailsList () {
 // todo: compléter plus tard pour faire l'addition des montants (et la soustraction lors du retrait?)
 function displayTotalAmount() {
     const totalAmount = tabGlobal.reduce((total, newValue) => total + parseFloat(newValue[1]), 0);
-    displayTotal.innerHTML = `<span>${totalAmount} €</span>`;
+    displayTotal.innerHTML = `<span>${totalAmount}€</span>`;
 }
 
 // ==== Evénements ====
@@ -60,6 +60,8 @@ btnSpending.addEventListener("click", function (event) {
     inputCategories.value = "";
     // Réinitialiser le sous-tableau à chaque click
     tabDetails.length = 0;
+    // Réinitialiser le focus dans le premier champ
+    inputDescription.focus();
 })
 
 // Pour supprimer mes éléments
