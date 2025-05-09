@@ -1,1 +1,68 @@
 @use "../abstracts/" as *;
+
+body {
+    background-color: $main-dark;
+    color: $white-medium;
+    font-family: "Merriweather", serif;
+}
+
+h1 {
+    text-align: center;
+    margin: 5rem 0;
+    font-family: "Henny Penny", system-ui;
+    font-size: 5rem;
+}
+form {
+    width: 50%;
+    margin: auto;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+
+    label {
+        margin: 3rem 0 1rem;
+        color: $pink-medium;
+        font-size: 2rem;
+    }
+    input {
+        border-radius: 10px;
+        padding: 1rem;
+        border: 0;
+
+        &:focus {
+            outline: 3px solid $blue-medium;
+            
+        }
+    }
+    select {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    option[value=""] {
+        color: $grey-medium;
+    }
+    button {
+        margin: 3rem 0;
+        background-color: $pink-medium;
+        border: 1px solid $main-darker;
+        color: $white-medium;
+        text-transform: uppercase;
+        padding: 1rem;
+        border-radius: 30px;
+
+        &:hover {
+            box-shadow: 0 0 5px $white-medium;
+        }
+    }
+}
+.details-list {
+    width: 50%;
+    margin: 5rem auto;
+    text-align: center;
+}
+.amount-list {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}

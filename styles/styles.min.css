@@ -58,4 +58,70 @@ h1, h2, h3, h4, h5, h6 {
 */
 #root, #__next {
   isolation: isolate;
+}
+
+body {
+  background-color: #333;
+  color: #fffff0;
+  font-family: "Merriweather", serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 5rem 0;
+  font-family: "Henny Penny", system-ui;
+  font-size: 5rem;
+}
+
+form {
+  width: 50%;
+  margin: auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+form label {
+  margin: 3rem 0 1rem;
+  color: #e4405f;
+  font-size: 2rem;
+}
+form input {
+  border-radius: 10px;
+  padding: 1rem;
+  border: 0;
+}
+form input:focus {
+  outline: 3px solid #2196F3;
+}
+form select {
+  padding: 1rem;
+  border-radius: 10px;
+}
+form option[value=""] {
+  color: #B0B0B0;
+}
+form button {
+  margin: 3rem 0;
+  background-color: #e4405f;
+  border: 1px solid #1c1c1c;
+  color: #fffff0;
+  text-transform: uppercase;
+  padding: 1rem;
+  border-radius: 30px;
+}
+form button:hover {
+  box-shadow: 0 0 5px #fffff0;
+}
+
+.details-list {
+  width: 50%;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.amount-list {
+  width: 50%;
+  margin: auto;
+  text-align: center;
 }/*# sourceMappingURL=styles.min.css.map */
