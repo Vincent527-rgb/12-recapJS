@@ -36,9 +36,14 @@ function displayDetailsList () {
 }
 
 // Montrer le montant total
-// todo: compléter plus tard pour faire l'addition des montants (et la soustraction lors du retrait?)
+let totalAmount = 0;
 function displayTotalAmount() {
-    const totalAmount = tabGlobal.reduce((total, newValue) => total + parseFloat(newValue[1]), 0);
+    totalAmount = 0;
+    tabGlobal.forEach(function (detail) {
+        totalAmount += parseFloat(detail[1]);
+        console.log(detail);
+        console.log(detail[1]); 
+    })
     displayTotal.innerHTML = `<span>${totalAmount}€</span>`;
 }
 
@@ -47,7 +52,7 @@ function displayTotalAmount() {
 btnSpending.addEventListener("click", function (event) {
     event.preventDefault();
 
-    if (inputDescription.value == "" || inputAmount.value == "" || inputCategories.value == "") return alert("Vous devez remplir les champs !");
+    if (inputDescription.value === "" || inputAmount.value === "" || inputCategories.value === "") {return alert("Vous devez remplir les champs !");};
 
     stockUserData();
     stockTabDetails();
@@ -73,6 +78,13 @@ displayDetails.addEventListener("click", function (event) {
         tabGlobal.splice(indexItem, 1); 
         item.remove();
 
-        // todo: modifier également le montant
+        // Modifier le montant
+        displayTotalAmount();
     }
 })
+
+
+
+
+
+// const totalAmount = tabGlobal.reduce((total, newValue) => total + parseFloat(newValue[1]), 0);
